@@ -3,7 +3,12 @@
         <div class="bodyimg"><img src="../assets/img/newbodyimg.png" alt=""></div>
         <div class="mainbody">
             <div class="electronicsframe">
-                <div class="frame">
+                <div class="frame" v-for="category in categories" v-bind:key="category.category">
+                    <div class="frametext">{{ category.category }}</div>
+                    <div class="framebox" :style="{ backgroundImage: `url(${category.categoryImageLink})` }"></div>
+                    <div class="framelink"><a @click="opencategory(category.category)">See more</a></div>
+                </div>
+                <!-- <div class="frame">
                     <div class="frametext">Electronics</div>
                     <div class="framebox"></div>
                     <div class="framelink"><a href="">See more</a></div>
@@ -37,20 +42,32 @@
                     <div class="frametext">Electronics</div>
                     <div class="framebox"></div>
                     <div class="framelink"><a href="">See more</a></div>
-                </div>
-                <div class="frame">
-                    <div class="frametext">Electronics</div>
-                    <div class="framebox"></div>
-                    <div class="framelink"><a href="">See more</a></div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import Vue from "vue";
+import axios from "axios";
+import VueAxios from "vue-axios";
+Vue.use(VueAxios, axios);
 export default {
     name: "AccessoriesSection",
+    data() {
+    return { categories: undefined };
+  },
+  methods: {
+    opencategory(category){
+        this.$router.push(`/products/${category}`)
+    }
+  },
+  mounted() {
+    Vue.axios.get("http://127.0.0.1:3000/product/categories").then((resp) => {
+      this.categories = resp.data.categories;
+    });
+  },
 }
 </script>
 
