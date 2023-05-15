@@ -53,14 +53,14 @@ export default {
   name: "TopBar",
   methods: {
     async logout() {
-      await this.axios.get("http://127.0.0.1:3000/user/logout", {withCredentials: true}).then((resp) => {
-        Cookies.remove('ecommercetoken')
+      await this.axios.get("https://ecommercewithnest.onrender.com/user/logout", {withCredentials: true}).then((resp) => {
+        Cookies.remove('ecommercetoken');
         console.log(resp);
       });
     },
     async checkoutFunction() {
       const userNo = Cookies.get('ecommercetoken');
-      await this.axios.post("http://127.0.0.1:3000/user/checkout", {userNo}).then((resp) => console.log(resp))
+      await this.axios.post(`https://ecommercewithnest.onrender.com/user/checkout/${userNo}`).then((resp) => console.log(resp))
     }
   },
   mounted() {

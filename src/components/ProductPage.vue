@@ -199,13 +199,13 @@ export default {
 
     if (category) {
       Vue.axios
-        .get(`http://127.0.0.1:3000/product/productByCategory/${category}`)
+        .get(`https://ecommercewithnest.onrender.com/product/productByCategory/${category}`)
         .then((resp) => {
           this.products = resp.data.products;
           //console.log(this.$route.params.category);
         });
     } else {
-      Vue.axios.get("http://127.0.0.1:3000/product").then((resp) => {
+      Vue.axios.get("https://ecommercewithnest.onrender.com/product").then((resp) => {
         this.products = resp.data.products;
         //console.log(this.$route.params.category);
       });

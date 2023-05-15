@@ -112,4 +112,12 @@ a{
 .logo img{
     border-radius: 5px;
 }
+
+/* Media query for phone screen size */
+@media (max-width: 480px) {
+  /* Hide the navigation by default */
+  .footer {
+    display: none;
+  }
+}
 </style>

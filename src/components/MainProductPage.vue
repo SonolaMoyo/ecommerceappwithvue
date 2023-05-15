@@ -78,11 +78,11 @@ export default {
     },
     async addToCart(productId) {
       const userNo = Cookies.get('ecommercetoken');
-      await Vue.axios.post(`http://127.0.0.1:3000/user/cart/${productId}`, {userNo});
+      await Vue.axios.post(`https://ecommercewithnest.onrender.com/user/cart/${userNo}/${productId}`);
     },
     async removeFromCart(productId){
       const userNo = Cookies.get('ecommercetoken');
-      await Vue.axios.delete(`http://127.0.0.1:3000/user/cart/${productId}`, {userNo});
+      await Vue.axios.delete(`https://ecommercewithnest.onrender.com/user/cart/${userNo}/${productId}`);
     }
   },
   mounted() {

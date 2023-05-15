@@ -79,7 +79,7 @@ export default {
         };
         console.log(obj);
         await this.axios
-          .post("http://127.0.0.1:3000/user/create", obj)
+          .post("https://ecommercewithnest.onrender.com/user/create", obj)
           .then((resp) => {
             //console.log(resp)
             if (resp.status < 300) {

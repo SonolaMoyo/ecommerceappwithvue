@@ -64,7 +64,7 @@ export default {
     }
   },
   mounted() {
-    Vue.axios.get("http://127.0.0.1:3000/product/categories").then((resp) => {
+    Vue.axios.get("https://ecommercewithnest.onrender.com/product/categories").then((resp) => {
       this.categories = resp.data.categories;
     });
   },
